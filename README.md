@@ -1,37 +1,43 @@
 # ToDoList
 
-📝 To-Do List
-A simple To-Do List web application built with Node.js, Express, MongoDB, and EJS. It allows users to manage their tasks using the Eisenhower Matrix, categorizing tasks based on priority.
+A simple To-Do List web application built with Node.js, Express, MongoDB, and EJS. It allows users to manage their tasks effectively using the **Eisenhower Matrix**, categorizing tasks based on priority.
 
-📖 About the Project This project is a full-stack web application designed to help users manage their tasks effectively. ✅ Add tasks with priority labels (Do Now, Schedule, Delegate, Eliminate)
-✅ Mark tasks as completed (strikethrough effect)
-✅ Delete tasks they no longer need
+## 📖 About the Project
 
-📌 Features
-✔ Task Management: Users can add, complete, and delete tasks
-✔ Priority System: Tasks are categorized using the Eisenhower Matrix
-✔ Responsive Design: Works seamlessly on both mobile and desktop ✔ Database Storage: Tasks are stored in MongoDB (Atlas) for easy access
+This project is a **full-stack web application** designed to help users manage their tasks effectively. With this app, users can organize tasks into categories based on urgency and importance. 
 
-🛠️ Tech Stack
+### Key Features:
+- ✅ **Add tasks with priority labels**: Users can add tasks and assign them a priority using the Eisenhower Matrix (Do Now, Schedule, Delegate, Eliminate).
+- ✅ **Mark tasks as completed**: Completed tasks are visually marked with a strikethrough effect.
+- ✅ **Delete tasks**: Users can remove tasks they no longer need.
+- ✅ **Responsive Design**: The app is fully responsive and works seamlessly on both mobile and desktop devices.
+- ✅ **Database Storage**: Tasks are stored securely in **MongoDB Atlas** for easy and persistent access.
 
-Frontend: EJS (Embedded JavaScript) + CSS
-Backend: Node.js, Express.js
-Database: MongoDB Atlas
-Styling: Custom CSS
-📌 Open in Browser Go to: http://localhost:3000
+## 🛠️ Tech Stack
 
-📌 Usage
+- **Frontend**: EJS (Embedded JavaScript) + Custom CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB Atlas
+- **Styling**: Custom CSS
 
-1️⃣ Add tasks with priority levels 2️⃣ Mark tasks as completed or delete them
+## 📌 Open in Browser
+Go to: `http://localhost:3000`
 
-📜 Folder Structure
+## 📌 Usage
 
+1️⃣ Add tasks with priority levels  
+2️⃣ Mark tasks as completed or delete them  
+
+## 📜 Folder Structure
+
+```bash
 /to-do-list
-│── /models          # Mongoose models (User, Task)
-│── /routes          # Express route handlers (auth, tasks)
+│── /models          # Mongoose models (Task)
+│── /routes          # Express route handlers (tasks)
 │── /views           # EJS templates (index.ejs, login.ejs, register.ejs)
 │── /public          # Static files (CSS, images)
 │── server.js        # Main server file
 │── package.json     # Project dependencies
 │── .env.example     # Sample environment variables
 │── README.md        # Project documentation
+```
