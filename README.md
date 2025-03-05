@@ -20,8 +20,6 @@ This project is a **full-stack web application** designed to help users manage t
 - **Database**: MongoDB Atlas
 - **Styling**: Custom CSS
 
-## 📌 Open in Browser
-Go to: `http://localhost:3000`
 
 ## 📌 Usage
 
