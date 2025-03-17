@@ -18,34 +18,31 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Session setup
-app.use(
-  session({
-    secret: "random-secret-key",
+app.use(session({
+    secret: 'random-secret-key', 
     resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 day
-  })
-);
+    saveUninitialized: true, 
+    cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
+}));
 
 // Assign a temporary user ID if not set
 const { ObjectId } = mongoose.Types;
 
 app.use((req, res, next) => {
-  if (!req.session.userId) {
-    req.session.userId = new ObjectId(); // Generate a valid MongoDB ObjectId
-  }
-  next();
+    if (!req.session.userId) {
+        req.session.userId = new ObjectId(); // Generate a valid MongoDB ObjectId
+    }
+    next();
 });
 // MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+mongoose.connect(process.env.MONGO_URI)  
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err) => console.log(err));
 
 // Routes
 app.use("/", taskRoutes);
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}`);
 });
