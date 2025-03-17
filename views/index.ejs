@@ -5,70 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <link rel="icon" href="/images/favicon2.png" type="image/png">
     <script src="https://kit.fontawesome.com/0259f3d1fc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1><span>Plan Your Day</span></h1>
 
-        <form action="/add" method="POST">
-            <input type="text" name="description" placeholder="New task..." required>
-
-            <select name="priority" required>
-                <option value="Do Now">Urgent & Important</option>
-                <option value="Schedule">Not Urgent but Important</option>
-                <option value="Delegate">Urgent but Not Important</option>
-                <option value="Eliminate">Not Urgent & Not Important</option>
-            </select>
-
-            <button type="submit">Add</button>
-        </form>
-
-        <ul>
-            <% tasks.forEach(task=> { %>
-                <li
-                    class="<%= task.completed ? 'completed' : '' %> <%= task.priority ? task.priority.toLowerCase().replace(' ', '-') : 'default-priority' %>">
-                    <span>
-                        <%= task.description %> -
-                            <strong>
-                                <%= task.priority %>
-                            </strong>
-                    </span>
-                    <form action="/complete/<%= task._id %>" method="POST">
-                        <button type="submit"><i class="fa-solid fa-check"></i></button>
-                    </form>
-                    <form action="/delete/<%= task._id %>" method="POST">
-                        <button type="submit"><i class="fa-solid fa-xmark"></i></button>
-                    </form>
-                </li>
-                <% }); %>
-        </ul>
-
-
-    </div>
-
-
-
-    <footer>
-
-        <div class="priority-legend">
-            <h3>Task Priorities:</h3>
-            <ul>
-                <li class="do-now">🔴 Do Now</li>
-                <li class="schedule">🟠 Schedule</li>
-                <li class="delegate">🔵 Delegate</li>
-                <li class="eliminate">🟢 Eliminate</li>
-            </ul>
-            <p>© Isabella. With love❤️ Give me a strawbell 🍓</p>
+    <body>
+        <div class="header">
+            <h1>To-Do List</h1>
+            <div id="clock"></div>
         </div>
 
-    </footer>
+        <div class="container">
+            <h1><span>Plan Your Day</span></h1>
+
+            <form action="/add" method="POST">
+                <input type="text" name="description" placeholder="New task..." required>
+
+                <select name="priority" required>
+                    <option value="Do Now">Urgent & Important</option>
+                    <option value="Schedule">Not Urgent but Important</option>
+                    <option value="Delegate">Urgent but Not Important</option>
+                    <option value="Eliminate">Not Urgent & Not Important</option>
+                </select>
+
+                <button type="submit">Add</button>
+            </form>
+
+            <ul>
+                <% tasks.forEach(task=> { %>
+                    <li
+                        class="<%= task.completed ? 'completed' : '' %> <%= task.priority ? task.priority.toLowerCase().replace(' ', '-') : 'default-priority' %>">
+                        <span>
+                            <%= task.description %> -
+                                <strong>
+                                    <%= task.priority %>
+                                </strong>
+                        </span>
+                        <form action="/complete/<%= task._id %>" method="POST">
+                            <button type="submit"><i class="fa-solid fa-check"></i></button>
+                        </form>
+                        <form action="/delete/<%= task._id %>" method="POST">
+                            <button type="submit"><i class="fa-solid fa-xmark"></i></button>
+                        </form>
+                    </li>
+                    <% }); %>
+            </ul>
 
 
-</body>
+        </div>
+
+
+
+        <footer>
+
+            <div class="priority-legend">
+                <h3>Task Priorities:</h3>
+                <ul>
+                    <li class="do-now">🔴 Do Now</li>
+                    <li class="schedule">🟠 Schedule</li>
+                    <li class="delegate">🔵 Delegate</li>
+                    <li class="eliminate">🟢 Eliminate</li>
+                </ul>
+                <p>© Isabella. With love❤️ Give me a strawbell 🍓</p>
+            </div>
+
+        </footer>
+
+        <script>
+            function updateClock() {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+                const date = now.toLocaleDateString(undefined, options); // Formats the date
+                const time = now.toLocaleTimeString(); // Gets real-time clock
+
+                document.getElementById("clock").innerHTML = `${date} | ${time}`;
+            }
+
+            setInterval(updateClock, 1000); // Update every second
+            updateClock(); // Call function immediately to prevent delay
+        </script>
+
+
+    </body>
 
 </html>
