@@ -23,16 +23,37 @@ body::before {
     filter: blur(10px); 
     z-index: -1; 
 }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.header h1{
+    
+    color: white;
+    padding: 10px 15px;
+    font-size: 20px ;
+}
+#clock {
+    font-size: 16px;
+    color: white;
+    background: #E58A8A;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
 /* Container for the To-Do List */
 .container {
-    max-width: 500px;
+    max-width: 100%;
     margin: 40px auto;
     margin-bottom: 80px;
     background: #fff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 .container h1 span{
     color: #E58A8A;
@@ -118,6 +139,7 @@ ul {
 }
 
 li {
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between; 
@@ -128,6 +150,7 @@ li {
     padding: 15px;
     border-radius: 5px;
     border-radius: 10px;
+
 }
 
 li span {
@@ -169,11 +192,15 @@ li form {
 
 /*  Mobile Responsive Design */
 @media (max-width: 600px) {
-    .container {
-        max-width: 90%;
-        margin: 20px auto;
-        padding: 15px;
+    .priority-legend ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start;
     }
+
+    .priority-legend li {
+        width: 100%;
+    }
+
 
     input {
         width: 100%;
@@ -194,7 +221,7 @@ li form {
     li {
         flex-direction: column;
         align-items: flex-start;
-        padding: 12px;
+        padding: 6px;
     }
 
     li form {
@@ -229,8 +256,6 @@ footer {
     border-top: 2px solid rgba(255, 255, 255, 0.2); 
 }
 
-
-
 /*  Priority Legend Styling */
 .priority-legend {
     display: inline-block;
@@ -239,7 +264,6 @@ footer {
     font-size: 14px;
     border-radius: 3px; 
 }
-
 
 /*  Make the List Inline */
 .priority-legend ul {
