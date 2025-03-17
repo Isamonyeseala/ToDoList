@@ -46,11 +46,11 @@ body::before {
 
 /* Container for the To-Do List */
 .container {
-    max-width: 100%;
+    max-width: 500px;
     margin: 40px auto;
     margin-bottom: 80px;
     background: #fff;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
